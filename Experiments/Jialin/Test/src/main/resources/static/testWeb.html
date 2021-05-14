@@ -1,0 +1,125 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My WebSocket</title>
+    
+    <style>
+    	#message{
+    		margin-top:40px;
+    		border:1px solid gray;
+    		padding:20px;
+    	}
+    </style>
+    
+</head>
+
+<body>
+
+<input type="text" id="nickname"/>
+
+<button onclick="connectWebSocket()">Connect WebSocket</button>
+
+<button onclick="closeWebSocket()">Disconnect WebSocket</button>
+
+<hr />
+
+<br />
+
+info:<input id="text" type="text" />
+
+Channel:<input id="toUser" type="text" />
+
+<button onclick="send()">send message</button>
+
+<div id="message"></div>
+
+</body>
+
+<script type="text/javascript">
+	var websocket = null;
+	
+	
+	function connectWebSocket(){
+	
+	var nickname = document.getElementById("nickname").value;
+	
+	if(nickname==""){
+		alert("Enter the nickname");
+		
+		return;
+	}
+	
+	
+	if('WebSocket'in window){
+		websocket = new WebSocket("ws://localhost:8080/websocket"+nickname);
+	}
+	else{
+	
+		alert("Not support websocket");
+	}
+	
+	websocket.onopen = function(event){
+		
+		setMessageInnerHTML("Log MSG: Connect successfully");
+		
+	}
+	
+	websocket.onmessage = function(event){
+		
+		setMessageInnerHTML(event.data);
+		
+	}
+	
+	websocket.onclose = function(){
+	
+		setMessageInnerHTML("Log MSG:Close connection");
+		
+	}
+	
+	window.onbeforeunload = function(){
+	
+		websocket.close();
+		
+	}
+	
+	}
+	
+	function setMessageInnerHTML(innerHTML){
+		
+		document.getElementById('message').innerHTML += innerHTML + '<br/>';
+		
+	}
+	
+	function closeWebSocket(){
+		
+		websocket.close();
+	
+	}
+	
+	function send(){
+	
+		var message = document.getElementById('text').value;
+		
+		var toUser = document.getElementById('toUser').value;
+		
+		var socketMsg = {msg:message,toUser:toUser};
+		
+		if(toUser == ''){
+			socketMsg.type = 0;
+		}else{
+			socketMsg.type = 1;
+		}
+		
+		
+		websocket.send(JSON.stringify(socketMsg));
+		
+	}
+	
+</script>
+
+</html>
+
+	
+	
+</html>
+

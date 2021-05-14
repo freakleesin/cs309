@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Ape</string>
+    <string name="Input_Username">Username</string>
+    <string name="Input_Password">Password</string>
+    <string name="Register_Button">Register</string>
+    <string name="Log_in_Button">Log In</string>
+    <string name="Course_Information">Com S 309</string>
+    <string name="Group_Information">HV-5</string>
+    <string name="Members">SC,RL,JX,MX</string>
+    <string name="HomeSite_Label_Restaurantes">Restaurants</string>
+    <string name="HomeSite_Label_BeverageShops">Beverage Shops</string>
+    <string name="HomeSite_Label_Entertainments">Entertainments</string>
+    <string name="HomeSite_Label_DepartmentStores">Department Stores</string>
+    <string name="HomeSite_Label_Apartments">Apartments</string>
+    <string name="Main_Label_Left">Community</string>
+    <string name="Main_Label_Center">Home</string>
+    <string name="Main_Label_Right">Personal Center</string>
+    <string name="Personal_Center_ChangeUsername">Change Username</string>
+    <string name="Personal_Center_ChangeAvatar">Change Avatar</string>
+    <string name="Personal_Center_ChangePassword">Change Password</string>
+    <string name="Personal_Center_Setting">Setting</string>
+    <string name="Personal_Center_Postings">Postings</string>
+    <string name="Personal_Center_Username">Username</string>
+    <string name="Register_Username">Username</string>
+    <string name="Register_Password">Password</string>
+    <string name="Register_RePassword">Verify Password</string>
+    <string name="Personal_Center_LogOut">Log Out</string>
+    <string name="Login_Text">Welcome</string>
+</resources>

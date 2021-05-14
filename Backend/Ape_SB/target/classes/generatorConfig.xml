@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--#coms-309-hv-5.cs.iastate.edu/user_main Teamhv_5#, #localhost:3307/user_main root Xm980621#-->
+<generatorConfiguration>
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!-- Database url, username, password -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3308/ape-db" userId="root"
+			password="">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- Generate a path for DataObject Class -->
+		<javaModelGenerator
+			targetPackage="com.Ape.dataObject" targetProject="Ape_SB">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- Generate a path for mapping -->
+		<sqlMapGenerator targetPackage="mapping"
+			targetProject="Ape_SB/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- Generate a path for Dao Class -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.Ape.dao" targetProject="Ape_SB">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- Generate tables and their DataObject Class -->
+		
+		<!--  <table tableName="users" domainObjectName="DO_Users"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="users_password"
+			domainObjectName="DO_UsersPassword" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="merchant"
+			domainObjectName="DO_Merchant" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="merchant_comments"
+			domainObjectName="DO_MerchantComments" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+		<table tableName="comments"
+			domainObjectName="DO_Comments" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	</context>
+</generatorConfiguration>

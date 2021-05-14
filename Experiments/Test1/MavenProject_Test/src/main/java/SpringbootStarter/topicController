@@ -1,0 +1,26 @@
+package SpringbootStarter.topic;
+
+import java.util.List;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class topicController {
+
+	@Autowired
+	private topicService ts;
+	@RequestMapping("/topics")
+	
+	public List<Topic> getAllTopics() {
+		return ts.getAllTopics();
+	}
+	
+	@RequestMapping("/topics/{couseName}")
+	public Topic getTopic(@PathVariable String couseName) {
+		return ts.getTopic(couseName);
+	}
+}

@@ -1,0 +1,24 @@
+package com.Ape.websocket;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MessageService {
+	@Autowired
+	private MessageRepository m;
+	public void add(Message message) {
+		m.saveAndFlush(message);
+	}
+	public List<Message> get (Integer room_id) {
+		return m.findByRoomId(room_id);
+	}
+	
+	public String getnamebyid(Integer userid) {
+		return m.getnamebyid(userid);
+		
+	}
+
+}

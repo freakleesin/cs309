@@ -1,0 +1,48 @@
+package SpringbootStarter.topic;
+
+public class Topic {
+
+	private String CourseName;
+	private String SpringOrFall;
+	private String description;
+	
+	public Topic() {
+		
+	}
+	
+	public Topic(String Coursename, String SpringOrFall, String description) {
+		super();
+		this.CourseName = Coursename;
+		this.SpringOrFall = SpringOrFall;
+		this.description = description;
+	}
+
+	public String getCourseName() {
+		return CourseName;
+	}
+
+	public void setCourseName(String courseName) {
+		CourseName = courseName;
+	}
+
+	public String getSpringOrFall() {
+		return SpringOrFall;
+	}
+
+	public void setSpringOrFall(String springOrFall) {
+		SpringOrFall = springOrFall;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+	
+	
+	
+}

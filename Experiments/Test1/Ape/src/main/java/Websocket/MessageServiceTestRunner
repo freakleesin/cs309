@@ -1,0 +1,21 @@
+package com.Ape.websocket;
+
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+
+public class MessageServiceTestRunner {
+
+	   public static void main(String[] args) {
+		      Result r = JUnitCore.runClasses(HistoryTest.class);
+		      
+		      for (Failure failure : result.getFailures()) {
+		         System.out.println(failure.toString());
+		      }
+		      
+		      System.out.println(r.wasSuccessful());
+		   }
+	
+	
+}

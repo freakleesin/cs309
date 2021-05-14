@@ -1,0 +1,25 @@
+package SpringbootStarter.topic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class topicService {
+
+	private List<Topic> topics = Arrays.asList(
+			new Topic("COMS309","Spring","Design a application"),
+			new Topic("COMS228","Fall","Introduction of Data Structure"),
+			new Topic("COMS227","Srping","Orientation of Objects")
+			
+			);
+	
+	public List<Topic> getAllTopics(){
+		return topics;
+	}
+	
+	public Topic getTopic(String courseName) {
+		return topics.stream().filter(t -> t.getCourseName().equals(courseName)).findFirst().get();
+	}
+}

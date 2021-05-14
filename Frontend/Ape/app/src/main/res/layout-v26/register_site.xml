@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33576643" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <EditText
+        android:id="@+id/Register_Input_Username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Register_Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/hgl35"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintStart_toStartOf="@+id/vgl10"
+        app:layout_constraintTop_toTopOf="@+id/hgl25" />
+
+    <EditText
+        android:id="@+id/Register_Input_Password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Register_Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/hgl55"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintStart_toStartOf="@+id/vgl10"
+        app:layout_constraintTop_toTopOf="@+id/hgl45" />
+
+    <EditText
+        android:id="@+id/Register_Reinput_Password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Register_RePassword"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/hgl65"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vgl10"
+        app:layout_constraintTop_toTopOf="@+id/hgl55" />
+
+    <Button
+        android:id="@+id/bRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Register_Button"
+        app:layout_constraintBottom_toTopOf="@+id/hgl86"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/vgl66"
+        app:layout_constraintTop_toTopOf="@+id/hgl75" />
+
+    <TextView
+        android:id="@+id/Members_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/Members"
+        app:layout_constraintBottom_toTopOf="@+id/hgl95"
+        app:layout_constraintEnd_toStartOf="@+id/vgl66"
+        app:layout_constraintStart_toStartOf="@+id/vgl33" />
+
+    <TextView
+        android:id="@+id/infoGroup"
+        android:layout_width="65dp"
+        android:layout_height="15dp"
+        android:gravity="center"
+        android:text="@string/Group_Information"
+        app:layout_constraintBottom_toTopOf="@+id/Members_Name"
+        app:layout_constraintEnd_toStartOf="@+id/vgl66"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/vgl33" />
+
+    <TextView
+        android:id="@+id/infoCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/Course_Information"
+        app:layout_constraintBottom_toTopOf="@+id/infoGroup"
+        app:layout_constraintEnd_toStartOf="@+id/vgl66"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/vgl33"
+        app:layout_constraintTop_toTopOf="@+id/hgl86"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl86"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.86" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/hgl25"
+        app:layout_constraintEnd_toStartOf="@+id/vgl66"
+        app:layout_constraintStart_toStartOf="@+id/vgl33"
+        app:layout_constraintTop_toTopOf="@+id/hgl5"
+        app:srcCompat="@drawable/defultavatar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/hgl45"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintStart_toStartOf="@+id/vgl10"
+        app:layout_constraintTop_toTopOf="@+id/hgl35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hgl75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <EditText
+        android:id="@+id/ruscc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Merchant or Consumer"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/hgl75"
+        app:layout_constraintEnd_toStartOf="@+id/vgl90"
+        app:layout_constraintStart_toStartOf="@+id/vgl10"
+        app:layout_constraintTop_toTopOf="@+id/hgl65" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

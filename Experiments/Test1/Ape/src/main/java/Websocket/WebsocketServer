@@ -1,0 +1,107 @@
+package com.Ape.websocket;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.PathParam;
+import javax.websocket.server.ServerEndpoint;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@ServerEndpoint("/websocket/{username}")
+@Component
+public class WebsocketServer {
+
+	private static Map<Session, String> sessionUsernameMap = new HashMap<>();
+	private static Map<String, Session> usernameSessionMap = new HashMap<>();
+	private final static Logger logger = LoggerFactory.getLogger(WebsocketServer.class);
+	
+	@SuppressWarnings("unlikely-arg-type")
+	@OnOpen
+	public void onOpen(Session session, @PathParam("username") String username, @PathParam("id") int ID)
+			throws IOException {
+		logger.info("Entered into Open");
+		logger.info("id: " + ID);
+
+
+		boolean NameValid = true;
+
+		for (String sessionID : sessionUsernameMap.values()) {
+			if (sessionID.equals(ID)) {
+				NameValid = false;
+				break;
+			}
+		}
+
+		sessionUsernameMap.put(session, username + "+" + ID);
+		usernameSessionMap.put(username + "+" + ID, session);
+
+		if (NameValid) {
+			String message = "{\"user\":\"" + username + "\"}";
+			broadcast(message);
+		} else {
+			String message = "{\"user\":\"" + username + "\"}";
+			broadcast(message);
+		}
+	}
+
+	
+	private static void sendMessageToUser(String name, String message) {
+		try {
+			usernameSessionMap.get(name).getBasicRemote().sendText(message);
+		}
+		catch (IOException e) {
+		    logger.info("Exception: " + e.getMessage().toString());
+		}
+	}
+	
+	@OnMessage
+	public void onMessage(Session session, String message) throws IOException {
+
+		logger.info("Received message: " + message);
+		String username = sessionUsernameMap.get(session);
+		sendMessageToUser(username, "Message received");
+		
+	}
+
+	@OnClose
+	public void onClose(Session session) throws IOException {
+		logger.info("Entered into Close");
+		String username = sessionUsernameMap.get(session);
+		sessionUsernameMap.remove(session);
+    	usernameSessionMap.remove(username);
+        
+    	String message= username + " disconnected";
+        broadcast(message);
+	}
+
+	@OnError
+	public void onError(Session session, Throwable throwable) {
+		logger.info("Entered into Error");
+	}
+
+	private static void broadcast(String message) throws IOException {	  
+		sessionUsernameMap.forEach((session, username) -> {
+			synchronized (session) {
+				try {
+			         session.getBasicRemote().sendText(message);
+			         } catch (IOException e) {
+			        	 e.printStackTrace();
+			        	 }
+			
+			}
+		});
+	}
+	
+
+	
+	
+}

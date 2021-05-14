@@ -1,0 +1,85 @@
+package com.Ape.websocket;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="message")
+public class Message {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private Integer id;
+	private String name;
+	@Column(name="userId")
+	private Integer userId;
+	@Column(name="roomId")
+	private Integer roomId;
+	@Column(name="time")
+	private String CurTime;
+	@Column(name="text")
+	private String text;
+	
+	public Message(Integer id, String name, Integer userId, Integer roomId, String CurTime,  String text) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.userId = userId;
+		this.roomId = roomId;
+		this.CurTime = CurTime;
+		this.text = text;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Integer getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	public Integer getRoomId() {
+		return roomId;
+	}
+	
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
+	}
+	
+	public String getCurTime() {
+		return CurTime;
+	}
+	
+	public void setCurTime(String CurTime) {
+		this.CurTime = CurTime;
+	}
+	
+	public String getText() {
+		return text;
+	}
+	
+	public void setTest(String text) {
+		this.text = text;
+	}
+
+}
